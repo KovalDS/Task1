@@ -23,27 +23,18 @@ public class Controller {
     public void processUser() {
         Scanner sc = new Scanner(System.in);
 
-        model.setSentence(readFirstWord(sc));
-        model.addWord(readSecondWord(sc));
+        model.setSentence(readSpecifiedWord(sc, HELLO));
+        model.addWord(readSpecifiedWord(sc, WORLD));
         view.printMessage(model.getSentence());
     }
 
     // The Utility methods
-    private String readFirstWord(Scanner sc) {
-        view.printMessage(view.INPUT_FIRST_WORD);
-        String word;
-        while(!(word = sc.next()).equals(HELLO)) {
-            view.printMessage(view.WRONG_INPUT + view.INPUT_FIRST_WORD);
+    private String readSpecifiedWord(Scanner sc, String word) {
+        view.printMessage(view.INPUT_WORD + "\"" + word + "\"");
+        String inputWord;
+        while(!(inputWord = sc.next()).equals(word)) {
+            view.printMessage(view.WRONG_INPUT + view.INPUT_WORD + word);
         }
-        return word;
-    }
-
-    private String readSecondWord(Scanner sc) {
-        view.printMessage(view.INPUT_SECOND_WORD);
-        String word;
-        while(!(word = sc.next()).equals(WORLD)) {
-            view.printMessage(view.WRONG_INPUT + view.INPUT_SECOND_WORD);
-        }
-        return word;
+        return inputWord;
     }
 }

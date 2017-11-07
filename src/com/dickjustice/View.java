@@ -5,8 +5,7 @@ package com.dickjustice;
  */
 public class View {
     // Text's constants
-    public static final String INPUT_FIRST_WORD = "Input \"Hello\":";
-    public static final String INPUT_SECOND_WORD = "Input \"world!\":";
+    public static final String INPUT_WORD = "Please, input word ";
     public static final String WRONG_INPUT = "Wrong input. Please, repeat. ";
 
     public void printMessage(String message) {
